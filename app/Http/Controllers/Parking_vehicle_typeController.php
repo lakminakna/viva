@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Parking_vehicle_type;
-
+use DB;                                                              //not sure
+use Illuminate\Support\Facades\Response;
+use Session;
 
 class Parking_vehicle_typeController extends Controller
 {
@@ -15,9 +17,9 @@ class Parking_vehicle_typeController extends Controller
      */
     public function index()
     {
-       $parking_vehicle_types = Parking_vehicle_type::all();
+       $parking_vehicle_type = Parking_vehicle_type::all();
 
-        return view('parking_vehicle_types.index', compact('parking_vehicle_types'));
+        return view('crud.parking_vehicle_types.index', compact('parking_vehicle_types'));
 
     }
 
@@ -28,7 +30,7 @@ class Parking_vehicle_typeController extends Controller
      */
     public function create()
     {
-         return view('parking_vehicle_types.create');
+         return view('crud.parking_vehicle_types.create');
     }
 
     /**
@@ -39,19 +41,15 @@ class Parking_vehicle_typeController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=>'required'
-        ]);
+        
 
         $parking_vehicle_type = new Parking_vehicle_type([
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'email' => $request->get('email'),
-            'job_title' => $request->get('job_title'),
-            'city' => $request->get('city'),
-            'country' => $request->get('country')
+            'parking_space_id' => $request->get('parking_space_id'),
+            'vehicle_type' => $request->get('vehicle_type'),
+            'total_no_of_vehicles' => $request->get('total_no_of_vehicles'),
+            'no_of_vehicles_parked' => $request->get('no_of_vehicles_parked'),
+            'number_reserved' => $request->get('number_reserved'),
+            'amount_per_hour' => $request->get('amount_per_hour')
         ]);
         $parking_vehicle_type->save();
         return redirect('/parking_vehicle_types')->with('success', 'Parking_vehicle_type saved!');

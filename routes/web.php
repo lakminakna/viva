@@ -51,6 +51,8 @@ Route::get('/landEdit','Parking_spaceController@editIndex');
 Route::get('/landDelete','Parking_spaceController@deleteIndex');
 
 
+
+
 Route::resource('landownerpage', 'LandownerpageController');
 Route::resource('adminpage', 'adminloginController');
 

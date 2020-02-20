@@ -47,6 +47,7 @@
           </div>
            <br>
             <a href="/images">Read full article</a>
+             <a href="{{ route('parking_vehicle_types.create')}}" ><button class="btn btn-outline-success" >Add Vehicle Types</button></a>
           </main>
           <nav>
             <!-- <button class="button button2" href="#">View</button> -->

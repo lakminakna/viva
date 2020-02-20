@@ -20,14 +20,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($parking_vehicle_types as $parking_vehicle_type)
+        @foreach($parking_vehicle_type as $parking_vehicle_type)
         <tr>
-            <td>{{$parking_vehicle_type->id}}</td>
-            <td>{{$parking_vehicle_type->first_name}} {{$parking_vehicle_type->last_name}}</td>
-            <td>{{$parking_vehicle_type->email}}</td>
-            <td>{{$parking_vehicle_type->job_title}}</td>
-            <td>{{$parking_vehicle_type->city}}</td>
-            <td>{{$parking_vehicle_type->country}}</td>
+            <td>{{$parking_vehicle_type->parking_space_id}}</td>
+            <td>{{$parking_vehicle_type->vehicle_type}}</td>
+            <td>{{$parking_vehicle_type->total_no_of_vehicles}}</td>
+            <td>{{$parking_vehicle_type->no_of_vehicles_parked}}</td>
+            <td>{{$parking_vehicle_type->number_reserved}}</td>
+           
             <td>
                 <a href="{{ route('parking_vehicle_types.edit',$parking_vehicle_type->id)}}" class="btn btn-primary">Edit</a>
             </td>
